@@ -1,0 +1,113 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace,amsmath}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+
+\begin{flushleft}
+\large Усачев Павел, 491 группа
+\end{flushleft}
+
+\section*{Решение одномерного уравнения теплопроводности методом сеток}
+
+\
+
+\section{Формулировка задачи}
+
+Уравнение теплопроводности в общем виде:
+
+$$
+ \frac{\partial u}{\partial t} =
+ a(x,t) \frac{\partial ^2 u}{\partial x^2} +
+ b(x,t) \frac{\partial u}{\partial x} +
+ c(x,t) u(x,t) + f(x,t),
+$$
+$$
+ x \in [a,b], \ t \in [0,T]
+$$
+
+Его мы и хотим решить методом сеток
+
+Начальные условия:
+
+$$
+ u(x,0) = \phi(x)
+$$
+
+Граничные условия:
+
+$$
+ \left[\alpha_1 \frac{\partial u}{\partial x} + \alpha_2 u\right]_{x=a}=\Psi_1(t) 
+$$
+$$
+ \left[\beta_1 \frac{\partial u}{\partial x} + \beta_2 u\right]_{x=b} = \Psi_2(t) 
+$$
+
+Шаг сетки по $x$ при заданном $n$: $ \displaystyle h = \frac{b-a}{n}. \ $
+$ \displaystyle x_i = a + ih, \ i=0,...,n $
+
+При условии устойчивости:
+$$
+ \frac{\tau}{h^2} \leq \frac{1}{2A}, \ 
+ A = \mathop{\text{max}}_{\Omega} |a(x,t)|, \ 
+ \text{где $\Omega$ -- область существования решения $u(x,t)$}
+$$
+
+Разбиение по $t$ выглядит следующим образом:
+
+$$
+ t_k = k \cdot \tau, \ k=1,..,m, \ 
+ \text{$m$ -- количество {\bfseries слоев}, которое нас интересует}
+$$
+
+\
+
+Решение на сетке:
+$ \displaystyle u_i^k = u(x_i,t_k) $
+
+\section{Условие задачи}
+
+$$
+ \frac{\partial u}{\partial t} =
+ \frac{\partial ^2 u}{\partial x^2} + \exp(-t)(x^2 - x + 2) 
+$$
+$$
+ x \in [0,1], \ t \in [0,T]
+$$
+
+\
+
+Начальные условия: $ \displaystyle u(x,0) = \cos 0.5x + (1-x)x$
+
+\
+
+Граничные условия:
+$$ u(0,t) = \exp(-0.25t) $$
+$$ u(1,t) = \exp(-0.25t) \cos 0.5 $$
+
+Причем, известно точное решение задачи:
+$$
+ \displaystyle u^*(x,t) = 
+ \exp(-0.25t) \cos 0.5x + \exp(-t) (1-x)x
+$$
+
+\section{Вывод формул}
+
+
+
+\section{Результаты}
+
+\
+
+
+
+
+
+\end{document}
+
